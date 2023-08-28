@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../axios';
-import request from '../request';
 import InfoIcon from '@mui/icons-material/Info';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import '../CSS/Banner.css'
-import { useNavigate } from 'react-router-dom';
 import Youtube from 'react-youtube';
 import movieTrailer from 'movie-trailer';
 import Movie from './Movie';
 
-function Banner(props) {
+function Banner({fetchurl}) {
     const [movie, setMovies] = useState([]);
     const [trailerUrl,setTrailerUrl] = useState("");
-    const navigate = useNavigate();
     useEffect(()=>{
         async function fetchdata(){
-            const reqst = await axios.get(request.fetchTrending);
+            const reqst = await axios.get(fetchurl);
             setMovies(reqst.data.results[Math.floor(Math.random() * reqst.data.results.length -1)]);
             return reqst;
         }
@@ -29,7 +26,7 @@ function Banner(props) {
             setTrailerUrl("");
         }
         else{
-            movieTrailer(movie?.name || "")
+            movieTrailer(movie?.name || movie?.title ||movie?.original_name || "")
             .then((url)=>{
                 const urlParams=new URLSearchParams(new URL(url).search);
                 setTrailerUrl(urlParams.get('v'));

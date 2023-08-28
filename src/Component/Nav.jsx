@@ -30,7 +30,7 @@ function Nav(props) {
             <img className="nav_logo" src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="netflix_logo" />
             </Link>
             <Link className='nav_link' to='/trailer'> Home</Link>
-            <Link className='nav_link_list' to='/list'>My List</Link>
+            <Link className='nav_link_list' to='/list'>Top Rated</Link>
             <SearchIcon onClick={handleSearchClick} className='search'/>
             {isSearchVisible && (
           <input type="text" placeholder="Search..." className='search_input'/>

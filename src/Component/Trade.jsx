@@ -3,12 +3,13 @@ import Row from './Row';
 import request from '../request';
 import Banner from './Banner';
 import Nav from './Nav';
+import Footer from './Footer';
 
 function Trade(props) {
     return (
         <div>
         <Nav/>
-        <Banner />
+        <Banner fetchurl={request.fetchTrending}/>
             <Row title='Netflix Originals' fetchUrl={request.fetchNetflixOriginals} isLargeRow/>
 	<Row title='Trending Now' fetchUrl={request.fetchTrending}/>
 	<Row title= 'Top Rated' fetchUrl={request.fetchTopRated}/>
@@ -17,7 +18,9 @@ function Trade(props) {
 	<Row title= 'Horror Movies' fetchUrl={request.fetchHorrorMovies}/>
 	<Row title='Romantic Movies' fetchUrl={request.fetchRomanceMovies}/>
 	<Row title= "Documentaries" fetchUrl={request.fetchDocumentaries}/>
+    <Footer/>
         </div>
+
     );
 }
 
