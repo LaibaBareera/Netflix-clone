@@ -3,20 +3,78 @@
     overflow-y: hidden;
     overflow-x: scroll;
     padding: 20px;
+    white-space: nowrap;
+    position: relative;
 }
+ 
 .row_posters::-webkit-scrollbar{
     display: none;
 }
 .row_poster{
-    width: 100%;
-    position: relative;
     object-fit: contain;
     max-height: 100px;
     margin-right: 10px;
-    transition: transform 450ms;
 }
+.image-scroll-row {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .scroll-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  button {
+    background-color: transparent;
+    border: none;
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  .scroll-menu-container {
+    flex: 1;
+    overflow-x: hidden;
+  }
+  
+  .menu-item {
+    display: inline-block;
+    padding: 0 10px;
+  }
+  .arrow_div{
+  height: 100%;
+  width: 50vh;
+  opacity: 1.67;
+  position: fixed;
+  justify-self: end;
+  background-color: #fff;
+  }
+
+  .arrow{
+    size: 40;
+    color: #fff;
+    opacity: 0.5;
+    cursor: pointer;
+
+  }
+  .arrow:hover{
+    opacity: 1;
+  }
+  .menu-item img {
+    max-width: 100px;
+    height: auto;
+  }
+  
 .row{
     background-color: black;
+    position: relative;
+    overflow-y: auto;
 }
 .row_posters:hover .img_description{
     
@@ -48,3 +106,4 @@ max-height: 250px;
     transition: opacity .2s, visibility .2s;
     
 }
+

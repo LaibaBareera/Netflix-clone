@@ -10,7 +10,7 @@ function Trade(props) {
         <div>
         <Nav/>
         <Banner fetchurl={request.fetchTrending}/>
-            <Row title='Netflix Originals' fetchUrl={request.fetchNetflixOriginals} isLargeRow/>
+            <Row title='Netflix Originals' fetchUrl={request.fetchNetflixOriginals} isLargeRow TV/>
 	<Row title='Trending Now' fetchUrl={request.fetchTrending}/>
 	<Row title= 'Top Rated' fetchUrl={request.fetchTopRated}/>
 	<Row title='Action Movies' fetchUrl={request.fetchActionMovies}/>

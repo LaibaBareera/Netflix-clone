@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Nav from "./Nav";
 import Youtube from 'react-youtube';
 import movieTrailer from "movie-trailer";
-const base_url= "https://api.themoviedb.org/3";
+const base_url ='https://image.tmdb.org/t/p/original/';
 const ApiKey = 'b0082684398664a4f99cb234dc50dd65';
 function Trailer() {
   const id = useParams();
@@ -56,8 +56,9 @@ function Trailer() {
   };
 
   const opts = {
-    height: '700px',
-    width: '1650px',
+    width:"800px",
+    height: "600px",
+    paddingLeft: "50px",
     playerVars: {
       autoplay: '1',
     },
@@ -72,10 +73,12 @@ function Trailer() {
   return (
     <>
       <Nav />
-      <div className='container'>
+      <div className='containe'>
+      <h1 style={{ color: 'white', paddingTop: "50px"}}>{(movieDetails)?.title || (movieDetails)?.name}</h1>
+
         {(movieDetails) && (
-          <div className='movie-info' style={{ paddingTop: '50px' }}>
-            <h1>{(movieDetails)?.title || (movieDetails)?.name}</h1>
+          <div className='movie-inf' style={{ paddingTop: '5px' }}>
+            <div className="imge">            
             {trailerUrl ? (
               <Youtube videoId={trailerUrl} opts={opts} />
             ) : (
@@ -84,13 +87,15 @@ function Trailer() {
                 src={`${base_url}${(movieDetails)?.poster_path || (movieDetails)?.backdrop_path}`}
                 alt={(movieDetails)?.title || (movieDetails)?.name}
               />
-            )}
+            )}</div>
 
-            <div className=''>
+
+            <div className='data'>
               <p>Release Date: {(movieDetails)?.release_date || (movieDetails)?.first_air_date}</p>
               <p>Rating: {(movieDetails)?.vote_average}</p>
               <p>Overview: {(movieDetails)?.overview}</p>
               <p>Rating</p>
+              <div style={{display:'flex',flexDirection:'row'}}>
               {[1, 2, 3, 4, 5].map((value) => (
                 <Star
                   key={value}
@@ -98,9 +103,24 @@ function Trailer() {
                   onClick={() => handleRatingClick(value)}
                 />
               ))}
+              </div>
             </div>
           </div>
         )}
+
+    </div>
+    <div className="movie-page">
+          <div className="comments-section">
+            <h2>Comment
+            </h2>
+
+        {/* Add comment components here */}
+          </div>
+          <div className="reviews-section">
+            <h2>Movie Reviews</h2>
+        {/* Add review components here */}
+          </div>
+
       </div>
     </>
   );

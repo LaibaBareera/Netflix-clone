@@ -5,10 +5,10 @@ import { useParams } from "react-router-dom";
 import Nav from "./Nav";
 import Youtube from 'react-youtube';
 import movieTrailer from "movie-trailer";
-const base_url= "https://api.themoviedb.org/3";
+const base_url ='https://image.tmdb.org/t/p/original/';
 const ApiKey = 'b0082684398664a4f99cb234dc50dd65';
 function Netflix() {
-    const id = useParams();
+    const { id }  = useParams();
     const [rating, setRating] = useState(0);
     const [movieDetail, setMovieDetail] = useState(null);
     const [trailerUrl, setTrailerUrl] = useState("");
@@ -18,7 +18,7 @@ function Netflix() {
     };
   
     useEffect(() => {
-      fetchTVKEy(id.id);
+      fetchTVKEy(id);
     }, [id]);
   
     useEffect(() => {
@@ -45,24 +45,28 @@ function Netflix() {
       if (trailerUrl) {
         setTrailerUrl("");
       } else {
-        movieTrailer(movie?.title || movie?.name || "")
+        movieTrailer(movie?.name || "")
           .then((url) => {
+            console.log("Found trailer URL:", url); // Add this line
+
             const urlParams = new URLSearchParams(new URL(url).search);
             setTrailerUrl(urlParams.get('v'));
           })
           .catch((err) => {
-            console.log(err);
+            console.log("Error fetching trailer:", err); // Add this line
           });
       }
     };
   
-    const opts = {
-        height: '700px',
-        width: '1650px',
-        playerVars: {
-          autoplay: '1',
-        },
-      };
+   
+  const opts = {
+    width:"800px",
+    height: "600px",
+    paddingLeft: "50px",
+    playerVars: {
+      autoplay: '1',
+    },
+  };
   
     const Star = ({ filled, onClick }) => (
       <span className={filled ? 'star filled' : 'star'} onClick={onClick}>
@@ -73,25 +77,27 @@ function Netflix() {
     return (
       <>
         <Nav />
-        <div className='container'>
+        <div className='containe'>
+        <h1 style={{ color: 'white', paddingTop: "50px"}}>{(movieDetail)?.title || (movieDetail)?.name}</h1>
           {(movieDetail) && (
-            <div className='movie-info' style={{ paddingTop: '50px' }}>
-              <h1>{(movieDetail)?.title || (movieDetail)?.name}</h1>
-              {trailerUrl ? (
+            <div className='movie-inf' style={{ paddingTop: '50px' }}>
+            <div className="imge">            
+              {trailerUrl ? ( 
                 <Youtube videoId={trailerUrl} opts={opts} />
               ) : (
                 <img
                   className="movies_img"
-                  src={`${base_url}${(movieDetail)?.poster_path || (movieDetail)?.backdrop_path}`}
-                  alt={(movieDetail)?.title || (movieDetail)?.name}
+                  src={`${base_url}${movieDetail?.poster_path}`}
+                  alt={(movieDetail)?.name}
                 />
               )}
-  
-              <div className=''>
+                </div>
+              <div className='data'>
                 <p>Release Date: {(movieDetail)?.release_date || (movieDetail)?.first_air_date}</p>
                 <p>Rating: {(movieDetail)?.vote_average}</p>
                 <p>Overview: {(movieDetail)?.overview}</p>
                 <p>Rating</p>
+                <div style={{display:'flex',flexDirection:'row'}}>
                 {[1, 2, 3, 4, 5].map((value) => (
                   <Star
                     key={value}
@@ -99,6 +105,7 @@ function Netflix() {
                     onClick={() => handleRatingClick(value)}
                   />
                 ))}
+                </div>
               </div>
             </div>
           )}

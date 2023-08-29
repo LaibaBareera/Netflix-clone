@@ -11,7 +11,7 @@ function MyList(props) {
           Top Rated
       </h1>
       <Banner fetchurl= {request.fetchTopRated}/>
-      <Row fetchUrl={request.fetchTopRated} isLargeRow/>
+      <Row fetchUrl={request.fetchTopRated} isLargeRow />
   </div>
   </>
     );

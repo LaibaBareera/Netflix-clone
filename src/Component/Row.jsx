@@ -2,21 +2,36 @@ import React, { useEffect, useState } from 'react';
 import axios from '../axios';
 import '../CSS/Row.css'
 import { useNavigate } from 'react-router-dom';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 const base_url ='https://image.tmdb.org/t/p/original/';
 
-function Row({title,fetchUrl,isLargeRow}) {
+function Row({title,fetchUrl,isLargeRow,TV}) {
     const [movies, setMovies] = useState([]);
+    const [page,setPage] = useState(1);
     const navigate = useNavigate();
+    const handleInfinite = ()=>{
+        try{
+            if (window.innerWidth + document.documentElement.scrollWidth+1 >= document.documentElement.scrollLeft){
+                setPage((prev)=>prev + 1);
+            }
+
+         }
+        catch(err){
+
+        }
+
+    }
     useEffect(()=>{
         async function fetchData(){
             const request = await axios.get(fetchUrl);
             // console.log(request);
-            setMovies(request.data.results);
+            setMovies((prev)=> [...prev,...request.data.results]);
             return request;
         }
         fetchData();
-    },[fetchUrl])
-
+    },[fetchUrl,page])
+   
     console.table(movies);
     return (
         <div className='row'>
@@ -26,11 +41,13 @@ function Row({title,fetchUrl,isLargeRow}) {
                 className={`row_poster ${isLargeRow && 'row_posterLarge'}`} 
                 key={val.id}
                 onClick={()=>{
-                    isLargeRow===true ? navigate(`/netflix/${val.id}`):
+                    TV===true ? navigate(`/netflix/${val.id}`):
                     navigate(`/info/${val.id}`);
                 }} 
                 src={`${base_url}${isLargeRow ? val.poster_path: val.backdrop_path}`} 
                 alt={val.name} />
+
+
                 {/* <div className='img_description'>
                     <PlayCircleIcon onClick={()=>{
                         navigate(`/movie${val.id}`);
@@ -41,8 +58,10 @@ function Row({title,fetchUrl,isLargeRow}) {
                 </div> */}
                 </>
                 ))}
-
+            
+                
             </div>
+            
         </div>
     );
 }
