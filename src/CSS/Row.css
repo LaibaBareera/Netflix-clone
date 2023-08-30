@@ -26,17 +26,7 @@
     align-items: center;
   }
   
-  button {
-    background-color: transparent;
-    border: none;
-    color: #000;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  button:focus {
-    outline: none;
-  }
+
   
   .scroll-menu-container {
     flex: 1;

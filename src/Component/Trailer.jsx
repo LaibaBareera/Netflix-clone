@@ -2,6 +2,7 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
+import DemoComment from "./DemoComment";
 import Nav from "./Nav";
 import Youtube from 'react-youtube';
 import movieTrailer from "movie-trailer";
@@ -94,7 +95,13 @@ function Trailer() {
               <p>Release Date: {(movieDetails)?.release_date || (movieDetails)?.first_air_date}</p>
               <p>Rating: {(movieDetails)?.vote_average}</p>
               <p>Overview: {(movieDetails)?.overview}</p>
-              <p>Rating</p>
+              <p>Rating: {(movieDetails)?.popularity}</p>
+             
+
+              <div className='bv3_form'>
+              <h1>
+                Post Review
+              </h1>
               <div style={{display:'flex',flexDirection:'row'}}>
               {[1, 2, 3, 4, 5].map((value) => (
                 <Star
@@ -104,22 +111,28 @@ function Trailer() {
                 />
               ))}
               </div>
+            
+      <form>
+        <textarea className='bv3_input' type='text' placeholder='Enter your comment'/>
+        <button type='submit' className='bv3_btn'>Post</button>
+        </form>
+      </div>
+
             </div>
           </div>
         )}
 
     </div>
     <div className="movie-page">
-          <div className="comments-section">
-            <h2>Comment
-            </h2>
+    {trailerUrl && (
+  <div className="comments-section">
+    <h2>Comment</h2>
+    <DemoComment videoID={trailerUrl} />
+    {/* Add comment components here */}
+  </div>
+)}
 
-        {/* Add comment components here */}
-          </div>
-          <div className="reviews-section">
-            <h2>Movie Reviews</h2>
-        {/* Add review components here */}
-          </div>
+         
 
       </div>
     </>

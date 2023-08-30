@@ -10,18 +10,8 @@ function Row({title,fetchUrl,isLargeRow,TV}) {
     const [movies, setMovies] = useState([]);
     const [page,setPage] = useState(1);
     const navigate = useNavigate();
-    const handleInfinite = ()=>{
-        try{
-            if (window.innerWidth + document.documentElement.scrollWidth+1 >= document.documentElement.scrollLeft){
-                setPage((prev)=>prev + 1);
-            }
+    
 
-         }
-        catch(err){
-
-        }
-
-    }
     useEffect(()=>{
         async function fetchData(){
             const request = await axios.get(fetchUrl);
