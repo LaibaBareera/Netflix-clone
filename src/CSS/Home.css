@@ -22,16 +22,15 @@
 
 .main{
     background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/6e32b96a-d4be-4e44-a19b-1bd2d2279b51/ee068656-14b9-4821-89b4-53b4937d9f1c/IN-en-20220516-popsignuptwoweeks-perspective_alpha_website_small.jpg');
-    height: 800px;
+    height: 900px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-items: center;
     align-items: start;
 }
 .mains{
     background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/6e32b96a-d4be-4e44-a19b-1bd2d2279b51/ee068656-14b9-4821-89b4-53b4937d9f1c/IN-en-20220516-popsignuptwoweeks-perspective_alpha_website_small.jpg');
-    height: 800px;
+    height:900px;
     width: 100%;
 
 }

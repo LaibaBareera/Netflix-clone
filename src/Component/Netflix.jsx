@@ -3,6 +3,7 @@ import React from "react";
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Nav from "./Nav";
+import DemoComment from "./DemoComment";
 import Youtube from 'react-youtube';
 import movieTrailer from "movie-trailer";
 const base_url ='https://image.tmdb.org/t/p/original/';
@@ -96,19 +97,41 @@ function Netflix() {
                 <p>Release Date: {(movieDetail)?.release_date || (movieDetail)?.first_air_date}</p>
                 <p>Rating: {(movieDetail)?.vote_average}</p>
                 <p>Overview: {(movieDetail)?.overview}</p>
-                <p>Rating</p>
-                <div style={{display:'flex',flexDirection:'row'}}>
-                {[1, 2, 3, 4, 5].map((value) => (
-                  <Star
-                    key={value}
-                    filled={value <= rating}
-                    onClick={() => handleRatingClick(value)}
-                  />
-                ))}
-                </div>
+                <p>Rating: {(movieDetail?.popularity)}</p>
+                <div className='bv3_form'>
+              <h1>
+                Post Review
+              </h1>
+              <div style={{display:'flex',flexDirection:'row'}}>
+              {[1, 2, 3, 4, 5].map((value) => (
+                <Star
+                  key={value}
+                  filled={value <= rating}
+                  onClick={() => handleRatingClick(value)}
+                />
+              ))}
               </div>
+            
+      <form>
+        <textarea className='bv3_input' type='text' placeholder='Enter your comment'/>
+        <button type='submit' className='bv3_btn'>Post</button>
+        </form>
+      </div>
+
             </div>
-          )}
+          </div>
+        )}
+
+    </div>
+    <div className="movie-page">
+    {trailerUrl && (
+  <div className="comments-section">
+    <h2>Comment</h2>
+    <DemoComment videoID={trailerUrl} />
+    {/* Add comment components here */}
+  </div>
+)}
+
         </div>
       </>
     );

@@ -29,9 +29,12 @@ width: 32px;
     margin-bottom: 12px;
 }
 .bv2_info{
-    margin-top: 15px;
-    padding-left:300px;
     position: absolute;
+  top: 40%; /* adjust as needed */
+  right: 0;
+  transform: translateY(-50%);
+  padding: 10px;
+
 }
 .bv2_input{
     width:500px;
@@ -80,7 +83,7 @@ margin-left: 220px;
     font-size: 1.15rem;
     height: 50px;
     margin-top: 10px;
-    margin-left: 292px;
+    margin-left: 262px;
 
 }
 .bv3_form{

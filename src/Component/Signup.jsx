@@ -117,7 +117,7 @@ function Signup(props) {
                 <button className='signup-btn'>Sign Up</button>
 
                 <hr className="signup-line" />
-                <Link to={'/login'} className='link'>Already SignUp? Login</Link>
+                <Link to={'/login'} className='link'>Already SignUp? <span style={{color:'white', paddingLeft:'1vh'}}> Login </span></Link>
 
             </form>
           </div>  

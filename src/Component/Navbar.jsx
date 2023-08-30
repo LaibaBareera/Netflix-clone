@@ -19,9 +19,9 @@ export default function App() {
             <img className="nav__logo" src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="" />
           </Link>
           
-          <div className="navbar">
-            <form style={{paddingLeft: '160vh'}} role="search">
-              <select>
+          <div className="navbar_2">
+            <form style={{paddingLeft: '160vh',display:'flex',flexDirection:'row'}} role="search">
+              <select className='slct'>
                 <option>English</option>
                 <option>Hindi</option>
               </select>

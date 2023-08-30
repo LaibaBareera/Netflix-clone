@@ -5,16 +5,25 @@
   .topNav{
     position: relative;
     width: 100%;
+    overflow-x: hidden;
     background: linear-gradient(180deg, black, transparent);
     z-index: 10;}
-    select{
+    
+    .slct{
       background: rgba(0,0,0,.4);
       border: 1px solid #aaa;
       color: #fff;
+      margin-right: 10px;
       font-size: .875rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      margin-right: 20px;
+    
+    
+    }
+    .navbar_2{
+      position: absolute;
+      top: 50%; /* adjust as needed */
+      right: 0;
+      transform: translateY(-50%);
+      padding: 10px;
     }
   .btn{
     background-color: red;
