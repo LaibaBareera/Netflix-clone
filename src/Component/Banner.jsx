@@ -56,9 +56,8 @@ function Banner({fetchurl}) {
 
     return (
        <header className='banner'
-       style={{backgroundSize:"cover",
-                backgroundImage:`url("https:image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
-                backgroundPosition: 'center center'}}>
+       style={{ backgroundImage:`url("https:image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+}}>
         <div className='banner_content'>
         <h1 className='banner_title'>
             {movie?.title || movie?.name || movie?.original_name}
@@ -68,7 +67,7 @@ function Banner({fetchurl}) {
             handleClick(movie)
         }}> <PlayArrowIcon className='play'/><span className='play_button'>Play</span> </button>
         <button className='banner_button' onClick={openOverlay}><InfoIcon className='play' /> <span className='play_button'>More Info</span></button>
-        {showOverlay && <Movie onClose={closeOverlay} name={movie?.name} path={movie?.poster_path} title={movie?.title} overview={movie?.overview} release={movie?.release_date} popularity={movie?.popularity} />}
+        {showOverlay && <Movie onClose={closeOverlay} name={movie?.name} fetchUrl={fetchurl} path={movie?.poster_path} title={movie?.title} overview={movie?.overview} release={movie?.release_date} popularity={movie?.popularity} />}
 
         </div>
         <h1 className='banner_description'>

@@ -3,9 +3,11 @@ import React from "react";
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Nav from "./Nav";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DemoComment from "./DemoComment";
 import Youtube from 'react-youtube';
 import movieTrailer from "movie-trailer";
+import { useNavigate } from 'react-router-dom';
 const base_url ='https://image.tmdb.org/t/p/original/';
 const ApiKey = 'b0082684398664a4f99cb234dc50dd65';
 function Netflix() {
@@ -13,7 +15,7 @@ function Netflix() {
     const [rating, setRating] = useState(0);
     const [movieDetail, setMovieDetail] = useState(null);
     const [trailerUrl, setTrailerUrl] = useState("");
-  
+    const navigate= useNavigate();
     const handleRatingClick = (newRating) => {
       setRating(newRating);
     };
@@ -79,7 +81,11 @@ function Netflix() {
       <>
         <Nav />
         <div className='containe'>
-        <h1 style={{ color: 'white', paddingTop: "50px"}}>{(movieDetail)?.title || (movieDetail)?.name}</h1>
+        <ArrowBackIcon className="arw"
+        onClick={()=>{
+          navigate(-1);
+        }} />
+        <h1 style={{ color: 'white'}} className="contain_data">{(movieDetail)?.title || (movieDetail)?.name}</h1>
           {(movieDetail) && (
             <div className='movie-inf' style={{ paddingTop: '50px' }}>
             <div className="imge">            

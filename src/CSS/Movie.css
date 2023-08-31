@@ -53,7 +53,8 @@
   
   .comments-section {
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #000;
+    color: white;
     border-radius: 8px;
     margin-right: 20px;
     margin-left: 140px;
@@ -65,9 +66,9 @@
   
   
   .movie_img{
-    width: 250px;
-    height: 250px;
-    padding-left: 20px;
+    width: 450px;
+    height: 450px;
+    padding-left: 170px;
   }
   /* Add more styling as needed */
 
@@ -86,25 +87,36 @@
   }
   
   .overlay {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    height:auto;
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 1;
+  
   }
   .overlay-content {
     background-color: black;
     padding: 20px;
-   
-    width: 300px;
+    margin-top: 80px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width: 800px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
-  
+  .arw{
+    position:absolute;
+    top: 70px;
+    left: 30px;
+    color: white;
+    cursor: pointer;
+    
+
+  }
   .close-button {
     position: absolute;
     top: 10px;
@@ -114,6 +126,72 @@
     cursor: pointer;
     font-size: 16px;
     color: white;
+  }
+  .relate{
+    margin-top: 15;
+  }
+  .contain_data{
+    padding-top: 50px;
+  }
+  @media (max-width: 850px) {
+    .overlay{
+      justify-items: start;
+      width: 350px;
+      padding-left: 100px;
+    }
+    .movie_img{
+      width: 150px;
+      height: 150px;
+      padding-left: 20px;
+    }
+    .close-button{
+      top:0;
+    }
+    .overlay-content {
+      width: 95%; /* Adjust the width as needed */
+      padding: 5px;
+    }
+    .movie-inf{
+      flex-direction: column;
+    }
+    .imge{
+      padding-left: 30px;
+      width: 300px;
+    }
+  
+  }    
+  
+
+  @media (max-width: 500px) {
+    .overlay{
+      justify-items: start;
+      width: 400px;
+      padding-left: 10px;
+    }
+    .overlay-content {
+      width: 250px;
+      left:0 /* Adjust the width as needed */
+    }
+    .close-button{
+      top:10px;
+    }
+    .movie_img{
+      padding-left: 50px;
+    }
+    .imge{
+      width: 350px; 
+      padding-left: 5px;
+      padding-top: 0;
+    }
+    .arw{
+      padding-top: 50px;
+    }
+    .contain_data{
+      padding-top: 80px;
+    }
+    .data{
+      width: 250px;
+    }
   }
 
   

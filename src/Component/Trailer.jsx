@@ -1,19 +1,21 @@
 // ... (imports and constants)
 import React from "react";
 import { useState,useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import DemoComment from "./DemoComment";
 import Nav from "./Nav";
 import Youtube from 'react-youtube';
 import movieTrailer from "movie-trailer";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const base_url ='https://image.tmdb.org/t/p/original/';
 const ApiKey = 'b0082684398664a4f99cb234dc50dd65';
+
 function Trailer() {
   const id = useParams();
   const [rating, setRating] = useState(0);
   const [movieDetails, setMovieDetails] = useState(null);
   const [trailerUrl, setTrailerUrl] = useState("");
-
+  const navigate = useNavigate();
   const handleRatingClick = (newRating) => {
     setRating(newRating);
   };
@@ -75,7 +77,12 @@ function Trailer() {
     <>
       <Nav />
       <div className='containe'>
-      <h1 style={{ color: 'white', paddingTop: "50px"}}>{(movieDetails)?.title || (movieDetails)?.name}</h1>
+      <ArrowBackIcon className="arw"
+        onClick={()=>{
+          navigate(-1);
+        }}
+      />
+      <h1 style={{ color: 'white'}} className="contain_data">{(movieDetails)?.title || (movieDetails)?.name}</h1>
 
         {(movieDetails) && (
           <div className='movie-inf' style={{ paddingTop: '5px' }}>

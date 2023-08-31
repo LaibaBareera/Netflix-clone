@@ -2,6 +2,8 @@
     color: white;
     object-fit: cover;
     height: 800px;
+    background-size: cover;
+    background-position: center center;
 }
 .banner_content{
     margin-left: 30px;
@@ -38,16 +40,7 @@ padding-bottom: 0.3rem;
 .play{
     padding-right: 5px;
 }
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(250,250,250,.5);
-    z-index: 25;
-  
-  }
+
 .play_button{
     font-size: 1.25rem;
 }
@@ -64,4 +57,10 @@ padding-bottom: 0.3rem;
         rgba(37,37,37,0.61)
         #111
     );
+}
+@media (max-width: 400px) {
+ .banner{
+    background-size: cover;
+    width: 400px;
+ }
 }
