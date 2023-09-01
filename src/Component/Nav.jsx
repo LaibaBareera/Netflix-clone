@@ -27,7 +27,7 @@ function Nav(props) {
     return (
         <div className={`nav ${show && 'nav_black'}`} >
             <Link to='/'>
-            <img className="nav_logo" src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="netflix_logo" />
+            <img className="nav_logo" src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo.png" alt="netflix_logo" />
             </Link>
             <Link className='nav_link' to='/trailer'> Home</Link>
             <Link className='nav_link_list' to='/list'>Top Rated</Link>

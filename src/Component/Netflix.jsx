@@ -63,9 +63,6 @@ function Netflix() {
   
    
   const opts = {
-    width:"800px",
-    height: "600px",
-    paddingLeft: "50px",
     playerVars: {
       autoplay: '1',
     },
@@ -90,7 +87,7 @@ function Netflix() {
             <div className='movie-inf' style={{ paddingTop: '50px' }}>
             <div className="imge">            
               {trailerUrl ? ( 
-                <Youtube videoId={trailerUrl} opts={opts} />
+                <Youtube videoId={trailerUrl} opts={opts} className="you" />
               ) : (
                 <img
                   className="movies_img"
@@ -119,12 +116,13 @@ function Netflix() {
               </div>
             
       <form>
-        <textarea className='bv3_input' type='text' placeholder='Enter your comment'/>
+        <textarea className='bv3_input' type='text' placeholder='Enter your Review'/>
         <button type='submit' className='bv3_btn'>Post</button>
         </form>
       </div>
 
             </div>
+          
           </div>
         )}
 

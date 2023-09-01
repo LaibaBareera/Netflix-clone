@@ -16,7 +16,7 @@ export default function App() {
       <nav className="navbar navbar-expand-md navbar-dark">
         <div className="container-fluid" style={{display:'flex', flexDirection: 'row', paddingTop: '3vh'}}>
           <Link className="navbar-brand" to="/">
-            <img className="nav__logo" src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="" />
+            <img className="nav__logo" src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo.png" alt="" />
           </Link>
           
           <div className="navbar_2">

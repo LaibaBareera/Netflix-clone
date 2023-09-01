@@ -39,7 +39,7 @@ function Home(props) {
                 <h2>
                     Ready to watch? Enter your email to create or restart your membership.
                 </h2>
-                <div>
+                <div className='home_form'>
                 <form onSubmit={formik.handleSubmit}>
 
               

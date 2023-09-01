@@ -21,7 +21,7 @@
 
   }
   .movies_img{
-    width:800px;
+    width:100%;
     height: 600px;
     padding-left: 50px;
   }
@@ -43,7 +43,7 @@
     padding: 20px;
     margin-right: 20px;
     display: flex;
-    
+    width: 50%;
     flex-direction: column;
   }
   .movie-page {
@@ -66,9 +66,8 @@
   
   
   .movie_img{
-    width: 450px;
+    width: 100%;
     height: 450px;
-    padding-left: 170px;
   }
   /* Add more styling as needed */
 
@@ -90,6 +89,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
     height:auto;
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
@@ -131,45 +131,83 @@
     margin-top: 15;
   }
   .contain_data{
-    padding-top: 50px;
+    padding-top: 70px;
+    padding-left: 25%;
+  }
+  .you{
+    width:100%;
+    height: 400px;
+    padding-left: 50px;
+  }
+  .main_data{
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   @media (max-width: 850px) {
     .overlay{
       justify-items: start;
-      width: 350px;
-      padding-left: 100px;
+      width: 100%;
+      padding-left: 10px;
+    }
+
+    .containe{
+      align-items: start;
     }
     .movie_img{
-      width: 150px;
-      height: 150px;
+      width: 90%;
+      height: 300px;
       padding-left: 20px;
+      padding-right: 15px;
+    }
+    .movies_img{
+      width: 90%;
+      height: 480px;
+      padding-left: 0;
     }
     .close-button{
       top:0;
     }
     .overlay-content {
-      width: 95%; /* Adjust the width as needed */
+      width: 70%; /* Adjust the width as needed */
       padding: 5px;
     }
     .movie-inf{
       flex-direction: column;
     }
     .imge{
-      padding-left: 30px;
-      width: 300px;
+      padding-left: 20px;
+      width: 100%;
     }
-  
+    .data{
+      width: 100%;
+      padding-left: 20px;
+    }
+  .comments-section{
+    margin-left: 0;
+    width: 600px;
+    padding: 0;
+
+  }
   }    
   
-
+@media(max-width:630px){
+  .data{
+    padding-left: 5%;
+    width:600px
+  }
+}
   @media (max-width: 500px) {
     .overlay{
       justify-items: start;
-      width: 400px;
+      width: 130%;
       padding-left: 10px;
     }
+    .movie_img{
+      width: 70%;
+    }
     .overlay-content {
-      width: 250px;
+      width: 70%;
       left:0 /* Adjust the width as needed */
     }
     .close-button{
@@ -179,8 +217,8 @@
       padding-left: 50px;
     }
     .imge{
-      width: 350px; 
-      padding-left: 5px;
+      width: 100%; 
+      padding-left: 70px;
       padding-top: 0;
     }
     .arw{
@@ -190,7 +228,8 @@
       padding-top: 80px;
     }
     .data{
-      width: 250px;
+      width: 400px;
+      padding-left: 50px;
     }
   }
 
